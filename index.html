@@ -1,0 +1,33 @@
+<html>
+    <header>
+
+        <script>
+            function calculateGFR() {
+  var Age = document.getElementById("Age").value; 
+  var Creatinine = document.getElementById("Creatinine").value;
+  var Serum = document.getElementById("Serum").value;
+  var Weight = document.getElementById("Weight").value;
+  var GFR = ((140 - Age) * Weight) / (0.8 * (Creatinine - Serum));
+  //((140 - Age) * Weight) / (0.8 (Creatinine * Serum)); //the equation here
+
+  document.getElementById("result").innerHTML = GFR.toFixed(2);
+}
+        </script>
+    </header>
+    <body>
+<h1>GFR</h1>
+<h3>Fill in the form to determine your GFR </h3>
+<p><strong>GFR is (140-Age)*Weight(in Kg)/ 0.8*(Creatinine-Serum(in MicroMal/L)) <br></strong></p>
+<form id="form">
+  Age:<input id="Age" type="text" name="Age" required><br>
+  Creatinine:<input id="Creatinine" type="text" name="Creatinine" required><br>
+  Serum(in MicroMal/L):<input id="Serum" type="text" name="Serum" required><br>
+  Weight(in Kg):<input id="Weight" type="text" name="Weight" required><br> 
+ 
+  <input type="button" onclick="calculateGFR()" value="Calculate" />
+</form>
+<p><b>your GFR is:</b><br>
+  <span id="result"></span>
+</p>
+</body>
+</html>

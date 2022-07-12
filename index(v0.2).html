@@ -1,0 +1,48 @@
+<html>
+    <head>
+  <title>GFR</title>
+  <style>
+    body {background-color: powderblue;}
+    h1   {color: blue;}
+    p    {color: red;}
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    </head>
+    <body>
+      <script>      
+ function calculateGFR() {
+        var gender = document.getElementById("gender").value;
+        var Age = document.getElementById("Age").value; 
+        var Creatinine = document.getElementById("Creatinine").value;
+          if (gender == 'Male') {
+            var GFR = 141 * (Math.pow ((Creatinine / 0.9) , -1.209)) * (Math.pow (0.993 , Age)) ;
+        }else if (gender == 'Female') {
+          var GFR = 144 * (Math.pow ((Creatinine / 0.7) , -1.209)) * (Math.pow (0.993 , Age)) ;
+        }else {
+        console.log('IDK')
+        }
+        
+  document.getElementById("result").innerHTML = GFR.toFixed(2);
+      }
+</script>
+
+ 
+
+<h1>GFR</h1>
+<h3>Fill in the form to determine your Chronic kidney disease GFR </h3>
+<p><strong>GFR is (140-Age)*Weight(Kg)/ 0.8*(Creatinine-Serum(mg/dl)) <br></strong></p>
+<form id="form">
+ <label>Age:</label><br><input id="Age" type="text" name="Age" required><br>
+ <label>Creatinine(mg/dL):</label><br><input id="Creatinine" type="text" name="Creatinine" required><br>
+<label for="gender">Gender:</label>
+<select id="gender">
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+</select> <br>
+</form>
+<br>
+<input type="button" onclick="calculateGFR()" value="Calculate" />
+<p><b>your GFR is:</b><br>
+  <span id="result"></span>
+</body>
+</html>

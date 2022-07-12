@@ -11,18 +11,10 @@
     <body>
       <script>      
  function calculateGFR() {
-        var gender = document.getElementById("gender").value;
         var Age = document.getElementById("Age").value; 
         var Creatinine = document.getElementById("Creatinine").value; 
         var Weight = document.getElementById("Weight").value;
-          if (gender == 'Male') {
-            var GFR = ((140 - Age) * Weight) / (72 * Creatinine);
-        }else if (gender == 'Female') {
-          var GFR = ((140 - Age) * Weight) / (72 * Creatinine); 
-        }else {
-        console.log('IDK')
-        }
-        
+        var GFR = ((140 - Age) * Weight) / (72 * Creatinine);
   document.getElementById("result").innerHTML = GFR.toFixed(2);
       }
 </script>
@@ -31,16 +23,12 @@
 
 <h1>GFR</h1>
 <h3>Fill in the form to determine your GFR </h3>
-<p><strong>GFR is (140-Age)*Weight(Kg)/ 0.8*(Creatinine-Serum(mg/dl)) <br></strong></p>
+<p><strong>GFR is (140-Age)*Weight(Kg)/ 72*(Creatinine(mg/dl)) <br></strong></p>
 <form id="form">
  <label>Age:</label><br><input id="Age" type="text" name="Age" required><br>
  <label>Creatinine(mg/dl):</label><br><input id="Creatinine" type="text" name="Creatinine" required><br>
  <label>Weight(Kg):</label><br><input id="Weight" type="text" name="Weight" required><br> 
-<label for="gender">Gender:</label>
-<select id="gender">
-  <option value="Male">Male</option>
-  <option value="Female">Female</option>
-</select> <br>
+
 </form>
 <br>
 <input type="button" onclick="calculateGFR()" value="Calculate" />

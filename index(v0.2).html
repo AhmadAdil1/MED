@@ -30,7 +30,9 @@
 
 <h1>GFR</h1>
 <h3>Fill in the form to determine your Chronic kidney disease GFR </h3>
-<p><strong>GFR is (140-Age)*Weight(Kg)/ 0.8*(Creatinine-Serum(mg/dl)) <br></strong></p>
+<p><strong>GFR for Male is (141 * ((Creatinine / 0.9) ^ -1.209) * 0.993 ^ Age) <br>
+           for Female (144 * ((Creatinine / 0.7) ^ -1.209) * 0.993 ^ Age)  
+    <br></strong></p>
 <form id="form">
  <label>Age:</label><br><input id="Age" type="text" name="Age" required><br>
  <label>Creatinine(mg/dL):</label><br><input id="Creatinine" type="text" name="Creatinine" required><br>

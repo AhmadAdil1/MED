@@ -1,0 +1,59 @@
+<html>
+    <head>
+  <title>Potassium loss</title>
+  <style>
+    body {background-color: powderblue;}
+    h1   {color: blue;}
+    p    {color: red;}
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    </head>
+    <body>
+      <script>      
+ function calculateKloss() {
+        var yearmonth = document.getElementById("yearmonth").value;
+        var Age = document.getElementById("Age").value; 
+        var Potassium = document.getElementById("Potassium").value;
+        var Weight = document.getElementById("Weight").value;
+
+        if (yearmonth == 'Months' && Age < 3){
+            var Kloss = (3.9 - Potassium) * Weight * 0.4;
+        }else if(yearmonth == 'Months' && Age >= 3){
+            var Kloss = (4.1 - Potassium) * Weight * 0.4;
+        }else if(yearmonth == 'Years' && Age < 18){
+            var Kloss = (3.4 - Potassium) * Weight * 0.4;
+        }else if(yearmonth == 'Years' && Age >= 18){
+            var Kloss = (3.5 - Potassium) * Weight * 0.4;
+        }else{
+            console.log('IDK');
+        }
+
+  document.getElementById("result").innerHTML = Kloss.toFixed(2);
+      }
+</script>
+
+ 
+
+<h1>Potassium loss</h1>
+<h3>Fill in the form to determine your Potassium loss in Diarrhea </h3>
+<p><strong>Potassium loss =  
+    Potassium loss (in mmol or mEq/L) = ((Potassium)normal lower limit - (Potassium)measured) x body weight (kg) x 0.4
+    <br></strong></p>
+<form id="form">
+ <label>Age in Months/Years</label><br><input id="Age" type="text" name="Age" required>
+ <label for="yearmonth"> in</label>
+ <select id="yearmonth" required>
+   <option value="Months" >Months</option>
+   <option value="Years">Years</option>
+ </select> <br><br>
+ <label>Potassium level(mmol/L or mEq/L):</label><br>
+ <input id="Potassium" type="text" name="Potassium" required><br><br>
+ <label>Weight(Kg):</label><br><input id="Weight" type="text" name="Weight" required><br> 
+
+</form>
+<br>
+<input type="button" onclick="calculateKloss()" value="Calculate" />
+<p><b>your Potassium loss is:</b><br>
+  <span id="result"></span>
+</body>
+</html>

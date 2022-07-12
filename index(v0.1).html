@@ -13,13 +13,12 @@
  function calculateGFR() {
         var gender = document.getElementById("gender").value;
         var Age = document.getElementById("Age").value; 
-        var Creatinine = document.getElementById("Creatinine").value;
-        var Serum = document.getElementById("Serum").value;  
+        var Creatinine = document.getElementById("Creatinine").value; 
         var Weight = document.getElementById("Weight").value;
           if (gender == 'Male') {
-            var GFR = ((140 - Age) * Weight) / (0.8 * 88.4 * (Creatinine - Serum));
+            var GFR = ((140 - Age) * Weight) / (72 * Creatinine);
         }else if (gender == 'Female') {
-          var GFR = ((140 - Age) * Weight) / (0.8 * 88.4 *(Creatinine - Serum)); 
+          var GFR = ((140 - Age) * Weight) / (72 * Creatinine); 
         }else {
         console.log('IDK')
         }
@@ -36,7 +35,6 @@
 <form id="form">
  <label>Age:</label><br><input id="Age" type="text" name="Age" required><br>
  <label>Creatinine(mg/dl):</label><br><input id="Creatinine" type="text" name="Creatinine" required><br>
- <label>Serum(mg/dl):</label><br><input id="Serum" type="text" name="Serum" required><br>
  <label>Weight(Kg):</label><br><input id="Weight" type="text" name="Weight" required><br> 
 <label for="gender">Gender:</label>
 <select id="gender">

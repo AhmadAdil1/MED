@@ -1,0 +1,60 @@
+<html>
+    <head>
+  <title>Potassium loss</title>
+  <style>
+    body {background-color: powderblue;}
+    h1   {color: blue;}
+    p    {color: red;}
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    </head>
+    <body>
+      <script> 
+
+ function calculateKloss() {
+        
+   var Age = document.getElementById("Age").value; 
+   var Potassium = document.getElementById("Potassium").value;
+   if(Age < 2){
+   var Kloss = (4 - Potassium);
+   }
+   else if(Age >= 2){
+    var Kloss = (3.6 - Potassium);
+   }
+  document.getElementById("result").innerHTML = Kloss.toFixed(1)+ " mmol/L or mEq/L"; 
+ 
+ if(Kloss.toFixed(1) <= 0.5 ){
+  var treatment = Kloss.toFixed(1) * 100;
+  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours" ;
+ }else if(Kloss.toFixed(1) > 0.5 && Kloss.toFixed(1) <= 1 ){
+  var treatment = ((Kloss.toFixed(1) - 0.5) * 150) + 50;
+  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours <br> Or Administer 20mEq to Central vein and administer " +(treatment.toFixed(1) - 20)+ " mEq IV at speed of 10mEq/hr for " + (treatment.toFixed(1) - 20) / 10 + " Hours " ;
+ }else if(Kloss.toFixed(1) > 1 && Kloss.toFixed(1) <= 1.5 ){
+  var treatment = ((Kloss.toFixed(1) - 1) * 200) + 125
+  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " +  treatment.toFixed(1) / 10  + " Hours <br> Or Administer 20mEq to Central vein and administer " +(treatment.toFixed(1) - 20)+ " mEq IV at speed of 10mEq/hr for " + (treatment.toFixed(1) - 20) / 10 + " Hours " ;
+ }else if(Kloss.toFixed(1) > 1.5 ){
+  document.getElementById("treat").innerHTML = "Dialysis ASAP!";
+ }
+ 
+ }
+
+</script>
+
+ 
+
+<h1>Potassium loss</h1>
+<h3>Fill in the form to determine your Potassium loss  </h3>
+<p></p>
+ <form id="form">
+ <label>Age in years</label><br><input id="Age" type="text" name="Age" required><br><br>
+ <label>Potassium level(mmol/L or mEq/L):</label><br>
+ <input id="Potassium" type="text" name="Potassium" required><br><br>
+</form>
+<br>
+<input type="button" onclick="calculateKloss()" value="Calculate" /><br>
+<p><b>Your Potassium loss is:</b><br>
+  <span id="result"></span>
+  <p><b>Treatment is</b><br>
+  <span id="treat"></span>
+</body>
+</html>

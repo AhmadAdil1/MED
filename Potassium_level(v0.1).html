@@ -28,10 +28,10 @@
   document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours" ;
  }else if(Kloss.toFixed(1) > 0.5 && Kloss.toFixed(1) <= 1 ){
   var treatment = ((Kloss.toFixed(1) - 0.5) * 150) + 50;
-  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours <br> Or Administer 20mEq to Central vein and administer " +(treatment.toFixed(1) - 20)+ " mEq IV at speed of 10mEq/hr for " + (treatment.toFixed(1) - 20) / 10 + " Hours " ;
+  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours <br> Or Administer 20mEq/hr to Central vein for " +(treatment.toFixed(1) / 20)+ " Hours" ;
  }else if(Kloss.toFixed(1) > 1 && Kloss.toFixed(1) <= 1.5 ){
   var treatment = ((Kloss.toFixed(1) - 1) * 200) + 125
-  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " +  treatment.toFixed(1) / 10  + " Hours <br> Or Administer 20mEq to Central vein and administer " +(treatment.toFixed(1) - 20)+ " mEq IV at speed of 10mEq/hr for " + (treatment.toFixed(1) - 20) / 10 + " Hours " ;
+  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " +  treatment.toFixed(1) / 10  + " Hours <br> Or Administer 20mEq/hr to Central vein for " +(treatment.toFixed(1) / 20)+ " Hours" ;
  }else if(Kloss.toFixed(1) > 1.5 ){
   document.getElementById("treat").innerHTML = "Dialysis ASAP!";
  }

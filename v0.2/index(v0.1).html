@@ -1,0 +1,61 @@
+<html>
+    <head>
+  <title>GFR</title>
+  <style>
+    body {background-color: powderblue;}
+    h1   {color: blue;}
+    p    {color: red;}
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    </head>
+    <body>
+      <script>      
+ function calculateGFR() {
+        var Age = document.getElementById("Age").value; 
+        var Creatinine = document.getElementById("Creatinine").value; 
+        var Weight = document.getElementById("Weight").value;
+        var GFR = ((140 - Age) * Weight) / (72 * Creatinine);
+  document.getElementById("result").innerHTML = GFR.toFixed(1);
+      
+
+      if(GFR.toFixed(1) >= 90){
+        document.getElementById("treat").innerHTML = "Normal kidney";
+       
+      }else if(GFR.toFixed(1) < 90 && GFR.toFixed(1) >= 60 ){
+        document.getElementById("treat").innerHTML = "Stage 2 kidney disease";
+  
+      }else if(GFR.toFixed(1) < 60 && GFR.toFixed(1) >= 45){
+        document.getElementById("treat").innerHTML = "Stage 3a kidney disease";
+  
+      }else if(GFR.toFixed(1) < 45 && GFR.toFixed(1) >= 30){
+        document.getElementById("treat").innerHTML = "Stage 3b kidney disease";
+  
+      }else if(GFR.toFixed(1) < 30 && GFR.toFixed(1) >= 15){
+        document.getElementById("treat").innerHTML = "Stage 3 kidney disease";
+  
+      }else if(GFR.toFixed(1) < 15){
+        document.getElementById("treat").innerHTML = "kidney Failure";
+  
+      }
+    }
+</script>
+
+ 
+
+<h1>GFR</h1>
+<h3>Fill in the form to determine your patient's GFR </h3>
+<p><strong>GFR is (140-Age)*Weight(Kg)/ 72*(Creatinine(mg/dl)) <br></strong></p>
+<form id="form">
+ <label>Age:</label><br><input id="Age" type="text" name="Age" required><br>
+ <label>Creatinine(mg/dl):</label><br><input id="Creatinine" type="text" name="Creatinine" required><br>
+ <label>Weight(Kg):</label><br><input id="Weight" type="text" name="Weight" required><br> 
+
+</form>
+<br>
+<input type="button" onclick="calculateGFR()" value="Calculate" />
+<p><b>Your patient's GFR is:</b><br>
+  <span id="result"></span>
+  <p><b>Diagnosis is</b><br>
+    <span id="treat"></span>
+</body>
+</html>

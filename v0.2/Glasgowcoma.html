@@ -1,0 +1,71 @@
+<html>
+    <head>
+  <title>Gasgowcoma</title>
+  <style>
+    body {background-color: powderblue;}
+    h1   {color: blue;}
+    p    {color: red;}
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    </head>
+    <body>
+      <script> 
+
+ function calculateGSC() {
+        
+   var Eyes = Number(document.getElementById("Eyes").value); 
+   var Verbal = Number(document.getElementById("Verbal").value);
+   var Motor = Number(document.getElementById("Motor").value);
+   var GSC = Eyes + Verbal + Motor;
+   document.getElementById("result").innerHTML = GSC; 
+ 
+   if(GSC <= 15 && GSC >= 13){
+  document.getElementById("treat").innerHTML = "Minor Brain Injury"; 
+   }else if(GSC < 13 && GSC >= 9){
+  document.getElementById("treat").innerHTML = "Moderate Brain Injury";
+ }else if(GSC < 9 && GSC >= 3){
+  document.getElementById("treat").innerHTML = "Severe Brain Injury";
+ }else if(GSC < 3 ){
+  document.getElementById("treat").innerHTML = "The patient is dead";
+ }
+}
+</script>
+
+ 
+
+<label for="Glasogow">Eye Opening Response:</label>
+<select name="Eyes" id="Eyes">
+  <option value="4">Eyes open spontaneously</option>
+  <option value="3">Eyes open to verbal command, speech, or shout</option>
+  <option value="2">Eyes open to pain (not applied to face)</option>
+  <option value="1">No eye opening</option>
+  </select>
+  <br><br><label for="Glasogow">Verbal Response:</label>
+  <select name="Verbal" id="Verbal">
+    <option value="5">Oriented</option>
+    <option value="4">Confused conversation, but able to answer questions</option>
+    <option value="3">Inappropriate responses, words discernible</option>
+    <option value="2">Incomprehensible sounds or speech</option>
+    <option value="1">No verbal response</option>
+    </select>
+  <br>
+  <br><label for="Glasogow">Motor Response:</label>
+  <select name="Motor" id="Motor">
+    <option value="6">Obeys commands for movement</option>
+    <option value="5">Purposeful movement to painful stimulus</option>
+    <option value="4">Withdraws from pain</option>
+    <option value="3">Abnormal (spastic) flexion, decorticate posture</option>
+    <option value="2">Extensor (rigid) response, decerebrate posture</option>
+    <option value="1">No motor response</option>
+  
+</select>
+  <br>
+  <br>
+  <input type="button" onclick="calculateGSC()" value="Calculate" /><br>
+  <p><b>Gasgowcoma score:</b><br>
+  <span id="result"></span>
+  <p><b>Result:</b><br>
+    <span id="treat"></span>
+ 
+</body>
+</html>

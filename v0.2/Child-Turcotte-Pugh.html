@@ -1,0 +1,81 @@
+<html>
+    <head>
+  <title>Child-Turcotte-Pugh</title>
+  <style>
+    body {background-color: powderblue;}
+    h1   {color: blue;}
+    p    {color: red;}
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    </head>
+    <body>
+      <script> 
+
+ function calculateCTP() {
+        
+   var Encephalopathy = Number(document.getElementById("Encephalopathy").value); 
+   var Ascites = Number(document.getElementById("Ascites").value);
+   var Bilirubin = Number(document.getElementById("Bilirubin").value);
+   var PT = Number(document.getElementById("PT").value);
+   var Albumin = Number(document.getElementById("Albumin").value);
+
+   var CTP = Ascites + Bilirubin + PT + Albumin + Encephalopathy;
+   document.getElementById("result").innerHTML = CTP; 
+ 
+   if(CTP <= 15 && CTP >= 10){
+  document.getElementById("treat").innerHTML = "Most severe liver disease"; 
+   }else if(CTP < 10 && CTP >= 7){
+  document.getElementById("treat").innerHTML = "Moderately severe liver disease";
+ }else if(CTP < 7 && CTP >= 5){
+  document.getElementById("treat").innerHTML = "Least severe liver disease";
+ }else if(CTP < 5 ){
+  document.getElementById("treat").innerHTML = "The patient's Liver is Normal";
+ }
+}
+</script>
+
+ 
+
+<label for="Child-Turcotte-Pugh">Encephalopathy:</label>
+<select name="Encephalopathy" id="Encephalopathy">
+  <option value="3">Severe (grade 3 or 4)</option>
+  <option value="2">Mild to moderate (grade 1 or 2)</option>
+  <option value="1">None</option>
+  </select>
+  <br><br>
+  <label for="Child-Turcotte-Pugh">Ascites:</label>
+  <select name="Ascites" id="Ascites">
+    <option value="3">Severe (diuretic refractory)</option>
+    <option value="2">Mild to moderate (diuretic responsive)</option>
+    <option value="1">None</option>
+    </select>
+    <br><br>
+    <label for="Child-Turcotte-Pugh">Bilirubin (mg/dL):</label>
+    <select name="Bilirubin" id="Bilirubin">
+      <option value="3">More than 3</option>
+      <option value="2">Between 2 and 3</option>
+      <option value="1">Less than 2</option>
+      </select><br>
+  <br>
+  <label for="Child-Turcotte-Pugh">Albumin (g/dL):</label>
+  <select name="Albumin" id="Albumin">
+    <option value="3">Less than 2.8</option>
+    <option value="2">Between 2.8 and 3.5</option>
+    <option value="1">More than 3.5</option>
+    </select><br>
+<br>
+<label for="Child-Turcotte-Pugh">Prothrombin time OR INR:</label>
+<select name="PT" id="PT">
+  <option value="3">PT>6 OR INR>2.3 </option>
+  <option value="2">PT=4-6 OR INR=1.7-2.3</option>
+  <option value="1">PT<4 OR INR<1.7 </option>
+  </select><br>
+<br>
+  <input type="button" onclick="calculateCTP()" value="Calculate" /><br>
+  <p><b>Child-Turcotte-Pugh score:</b><br>
+  <span id="result"></span>
+  <p><b>Result:</b><br>
+    <span id="treat"></span>
+ 
+</body>
+</html>

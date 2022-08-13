@@ -21,17 +21,21 @@
    else if(Age >= 2){
     var Kloss = (3.5 - Potassium);
    }
-  document.getElementById("result").innerHTML = Kloss.toFixed(1)+ " mmol/L or mEq/L Below normal"; 
+  document.getElementById("result").innerHTML = Kloss.toFixed(1)+ " mmol/L or mEq/L below normal"; 
  
  if(Kloss.toFixed(1) <= 0.5 ){
   var treatment = Kloss.toFixed(1) * 100;
   document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours" ;
+  document.getElementById("treatment").innerHTML =  +treatment.toFixed(1)+ " mEq." 
  }else if(Kloss.toFixed(1) > 0.5 && Kloss.toFixed(1) <= 1 ){
   var treatment = ((Kloss.toFixed(1) - 0.5) * 150) + 50;
-  document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours <br> Or Administer 20mEq/hr to Central vein for " +(treatment.toFixed(1) / 20)+ " Hours" ;
+ document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " + treatment.toFixed(1) / 10 + " Hours <br> Or Administer 20mEq/hr to Central vein for " +(treatment.toFixed(1) / 20)+ " Hours" ;
+ document.getElementById("treatment").innerHTML =  +treatment.toFixed(1)+ " mEq."
  }else if(Kloss.toFixed(1) > 1 && Kloss.toFixed(1) <= 1.5 ){
   var treatment = ((Kloss.toFixed(1) - 1) * 200) + 125
+  
   document.getElementById("treat").innerHTML = "Administer " +treatment.toFixed(1)+ " mEq IV. <br> Route of administeration is IV at speed of 10mEq/hr for " +  treatment.toFixed(1) / 10  + " Hours <br> Or Administer 20mEq/hr to Central vein for " +(treatment.toFixed(1) / 20)+ " Hours" ;
+ document.getElementById("treatment").innerHTML =  +treatment.toFixed(1)+ " mEq."
  }else if(Kloss.toFixed(1) > 1.5 ){
   document.getElementById("treat").innerHTML = "Dialysis ASAP!";
  }
@@ -54,6 +58,8 @@
 <input type="button" onclick="calculateKloss()" value="Calculate" /><br>
 <p><b>your patient's Potassium level is</b>
   <span id="result"></span> 
+   <p><b>your patient's total Potassium loss is: </b>
+  <span id="treatment"></span> 
   <p><b>Treatment is</b><br>
   <span id="treat"></span>
 </body>
